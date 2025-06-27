@@ -1,0 +1,131 @@
+.recipe-carousel-outer {
+  width: 100%;
+  margin: 0 auto 2.3em auto;
+  padding: 1.2em 0 0.5em 0;
+  background: none;
+  position: relative;
+  max-width: 1180px;
+}
+
+.recipe-carousel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 0.8em;
+  gap: 1.3em;
+  padding: 0 0.6rem;
+}
+
+.recipe-carousel-title {
+  font-size: 1.39rem;
+  font-weight: 650;
+  color: var(--primary);
+  margin: 0;
+}
+
+.carousel-nav-btns {
+  display: flex;
+  gap: 0.22em;
+}
+.carousel-btn {
+  background: var(--bg-card);
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  color: var(--primary);
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 1px;
+  transition: background 0.16s, border 0.16s, box-shadow 0.16s;
+  box-shadow: none;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 1;
+}
+.carousel-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+}
+.carousel-btn:focus, .carousel-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: #fff;
+  outline: none !important;
+  border: 1.5px solid var(--primary);
+}
+
+.recipe-carousel-track {
+  display: flex;
+  gap: 1.3rem;
+  will-change: transform;
+  transition: transform 0.41s cubic-bezier(.2,.7,.16,1);
+  /* Responsive variable used for calculations */
+  width: 100%;
+}
+
+.carousel-card-wrapper {
+  /* Sets basis according to visible count */
+  box-sizing: border-box;
+  padding: 0 0.04em;
+  transition: box-shadow 0.17s;
+  min-width: 0;
+}
+.carousel-card-wrapper:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Carousel dots (indicators) */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.05em;
+  gap: 0.38em;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+  border: none;
+  display: inline-block;
+  margin: 0 1px;
+  cursor: pointer;
+  transition: background 0.21s;
+  opacity: 0.75;
+}
+.carousel-dot.active,
+.carousel-dot:focus {
+  background: var(--primary);
+  opacity: 1;
+  outline: none;
+}
+.carousel-dot:hover:not(.active) {
+  background: var(--accent);
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .recipe-carousel-outer {
+    max-width: 98vw;
+    padding: 1.2em 0 0.2em 0;
+  }
+  .recipe-carousel-track {
+    gap: 0.8em;
+  }
+}
+@media (max-width: 900px) {
+  .recipe-carousel-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+}
+@media (max-width: 600px) {
+  .recipe-carousel-track {
+    gap: 0.3em;
+  }
+}

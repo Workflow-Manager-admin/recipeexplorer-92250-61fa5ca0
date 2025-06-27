@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import RecipeGrid from './components/RecipeGrid';
 import RecipeModal from './components/RecipeModal';
+import RecipeCarousel from './components/RecipeCarousel';
 
 /**
  * ThemeContext provides the current theme ("light" | "dark") and a toggle function to all components
@@ -91,6 +92,11 @@ function App() {
           onClose={() => setSidebarOpen(false)}
         />
         <main className="main-content">
+          {/* Show the new RecipeCarousel above the grid */}
+          <RecipeCarousel
+            recipes={recipes}
+            onSelect={openRecipe}
+          />
           <RecipeGrid
             recipes={recipes}
             onSelect={openRecipe}
