@@ -131,6 +131,21 @@
   .navbar {
     padding: 0 0.7rem;
   }
+  .sidebar-toggle-btn {
+    display: inline-block !important;
+    margin-right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 4px 9px 4px 5px;
+    border-radius: 7px;
+    vertical-align: middle;
+  }
+}
+.sidebar-toggle-btn {
+  display: none;
 }
 
 /* Sidebar */

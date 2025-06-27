@@ -12,9 +12,8 @@ function Navbar({ openSidebar }) {
   return (
     <nav className="navbar">
       <button
-        className="navbar-button"
+        className="navbar-button sidebar-toggle-btn"
         onClick={openSidebar}
-        style={{ display: "none" }}
         aria-label="Open Sidebar"
         id="sidebar-open-btn"
       >

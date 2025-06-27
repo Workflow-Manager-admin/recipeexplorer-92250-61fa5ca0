@@ -5,18 +5,21 @@ import React from "react";
  * Sidebar for recipe app: search/filter stub UI, responsive drawer/modal
  */
 function Sidebar({ open, onClose }) {
-  // By default, filter/search control is just placeholder
-  
+  // Determine if we're on mobile or desktop
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 968;
+
   return (
     <>
       {/* Overlay for mobile, only shown when sidebar open */}
-      <div
-        className="sidebar-overlay"
-        style={{ display: open ? "block" : "none" }}
-        onClick={onClose}
-        tabIndex={-1}
-        aria-hidden={!open}
-      />
+      {isMobile && (
+        <div
+          className="sidebar-overlay"
+          style={{ display: open ? "block" : "none" }}
+          onClick={onClose}
+          tabIndex={-1}
+          aria-hidden={!open}
+        />
+      )}
       <aside
         className={
           "sidebar " +
@@ -24,16 +27,19 @@ function Sidebar({ open, onClose }) {
         }
         role="complementary"
         tabIndex={open ? 0 : -1}
-        aria-hidden={!open}
+        aria-hidden={isMobile ? !open : false}
         aria-label="Sidebar"
+        style={{ left: !isMobile ? 0 : undefined }} // always visible left=0 on desktop
       >
-        <button
-          className="sidebar-close-btn"
-          onClick={onClose}
-          aria-label="Close Sidebar"
-        >
-          ✕
-        </button>
+        {isMobile && (
+          <button
+            className="sidebar-close-btn"
+            onClick={onClose}
+            aria-label="Close Sidebar"
+          >
+            ✕
+          </button>
+        )}
         <div className="sidebar-title">Search & Filters</div>
         <div className="sidebar-filters">
           <input

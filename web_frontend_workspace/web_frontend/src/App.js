@@ -59,7 +59,10 @@ const sampleRecipes = [
 function App() {
   const [theme, setTheme] = useState('light');
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  // Show sidebar by default on desktop, closed on mobile
+  const getInitialSidebarOpen = () =>
+    window.innerWidth > 968 ? true : false;
+  const [sidebarOpen, setSidebarOpen] = useState(getInitialSidebarOpen());
   const [recipes, setRecipes] = useState(sampleRecipes);
 
   // PUBLIC_INTERFACE
